@@ -197,7 +197,6 @@ string firstWord = "Hello"; string lastWord = "Example 2"; Console.WriteLine(fir
 string str = "The quick brown fox jumps over the lazy dog.";
 
 char[] charMessage = str.ToCharArray();
-
 Array.Reverse(charMessage);
 
 int x = 0;
