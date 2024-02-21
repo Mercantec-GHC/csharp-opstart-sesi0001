@@ -200,9 +200,83 @@ Console.WriteLine($"Product: {size} {color} {type}");
 
 
 
-for (int i = 0; i < 10; i++)
+for (int i = 0; i < 10; i += 3)
 {
     Console.WriteLine(i);
 }
 
+for (int i = 10; i >= 0; i--)
+{
+    Console.WriteLine(i);
+    if (i == 4)
+    {
+        break;
+    }
+}
 
+
+string[] names = { "Alex", "Eddie", "David", "Michael" };
+
+for (int i = 0; i < names.Length; i++)
+{
+    if (names[i] == "David")
+    {
+        names[i] = "John";
+    }
+}
+
+foreach (var name in names)
+{
+    Console.WriteLine(name);
+}
+
+
+for (int i = 0; i <= 100; i++)
+{
+    if ((i % 3) == 0 && (i % 5) == 0)
+    {
+        Console.WriteLine($"{i} - FizzBuzz");
+    }
+
+    else if ((i % 3) == 0)
+    {
+        Console.WriteLine($"{i} - Fizz");
+    }
+
+    else if ((i % 5) == 0)
+    {
+        Console.WriteLine($"{i} - Buzz");
+    }
+
+    else
+    {
+        Console.WriteLine(i);
+    }
+}
+
+
+Random randomly = new Random();
+int current = randomly.Next(1, 11);
+
+do
+{
+    current = randomly.Next(1, 11);
+
+    if (current >= 8)
+    {
+        continue;
+    }
+
+    Console.WriteLine(current);
+} while (current != 7);
+
+
+/*
+while (current >= 3)
+{
+    Console.WriteLine(current);
+    current = randomly.Next(1, 11);
+}
+
+Console.WriteLine($"Last number: {current}");
+*/
