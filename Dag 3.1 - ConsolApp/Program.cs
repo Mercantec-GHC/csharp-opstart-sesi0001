@@ -10,6 +10,7 @@ Console.WriteLine(myValue1.Trim().ToLower() == myValue2.Trim().ToLower());
 */
 
 using System;
+using System.Linq;
 
 Console.WriteLine("a" != "a");
 Console.WriteLine("a" != "A");
@@ -320,3 +321,83 @@ do
     attack = random2.Next(0, 10);
 
 } while (hero > 0 && monster > 0);
+
+
+/*
+int hero = 10;
+int monster = 10;
+
+Random dice = new Random();
+
+do
+{
+    int roll = dice.Next(1, 11);
+    monster -= roll;
+    Console.WriteLine($"Monster was damaged and lost {roll} health and now has {monster} health.");
+
+    if (monster <= 0) continue;
+
+    roll = dice.Next(1, 11);
+    hero -= roll;
+    Console.WriteLine($"Hero was damaged and lost {roll} health and now has {hero} health.");
+
+} while (hero > 0 && monster > 0);
+
+Console.WriteLine(hero > monster ? "Hero wins!" : "Monster wins!");
+*/
+
+
+/*
+string? userInput;
+int numericInput = 0;
+bool validEntry = false;
+Console.WriteLine("Please enter a number between 5-10:");
+
+do
+{
+    userInput = Console.ReadLine();
+    validEntry = int.TryParse(userInput, out numericInput);
+
+    if (numericInput >= 5 && numericInput <= 10)
+    {
+        Console.WriteLine($"Your number: {numericInput} has been accepted.");
+        validEntry = true;
+    }
+
+    else
+    {
+        Console.WriteLine("Your input is out of scope. Please try again.");
+        validEntry = false;
+    }
+
+} while (validEntry == false);
+*/
+
+
+string? userInput2;
+string[] validRoles = { "Administrator", "Manager", "User" };
+for (int i = 0; i < validRoles.Length; i++)
+    validRoles[i] = validRoles[i].ToLower();
+
+bool validEntry2 = false;
+
+Console.WriteLine("Please enter the role that fit your position Administrator, Manager, or User");
+
+do
+{
+    userInput2 = Console.ReadLine();
+    userInput2 = userInput2.Trim().ToLower();
+
+
+    if (validRoles.Contains(userInput2))
+    {
+        Console.WriteLine($"Your role as {userInput2} has been accepted");
+        validEntry2 = true;
+    }
+
+    else
+    {
+        Console.WriteLine($"{userInput2} is not valid. Please enter one of the three valid positions");
+        validEntry2 = false;
+    }
+} while (validEntry2 == false);
