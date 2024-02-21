@@ -280,3 +280,43 @@ while (current >= 3)
 
 Console.WriteLine($"Last number: {current}");
 */
+
+
+Random random2 = new Random();
+int attack = random2.Next(0, 10);
+int hero = 10;
+int monster = 10;
+int heroTurn = 0;
+int monsterTurn = 1;
+
+do
+{
+    if (monster > 0 && heroTurn < monsterTurn)
+    {
+        monster -= attack;
+        if (monster <= 0)
+        {
+            Console.WriteLine($"The Hero won since the attack on the monster caused {attack} points damage resulting in the monster now having {monster} points");
+            continue;
+        }
+
+        Console.WriteLine($"The attack on the monster caused {attack} point damage. The Monster now has {monster} points left.");
+        heroTurn++;
+    }
+
+    else if (hero > 0 && monsterTurn <= heroTurn)
+    {
+        hero -= attack;
+        if (hero <= 0)
+        {
+            Console.WriteLine($"The Monster won since the attack on the hero caused {attack} points damage resulting in the hero now having {hero} points");
+            continue;
+        }
+
+        Console.WriteLine($"The attack on the hero caused {attack} point damage. The Hero now has {hero} points left.");
+        monsterTurn++;
+    }
+
+    attack = random2.Next(0, 10);
+
+} while (hero > 0 && monster > 0);
